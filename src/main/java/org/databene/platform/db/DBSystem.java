@@ -354,7 +354,11 @@ public class DBSystem extends AbstractStorageSystem {
             iterator.remove();
         }
         if (database != null)
+            try {
         	CachingDBImporter.updateCacheFile(database);
+            } catch (Exception ignore) {
+                // ignore
+            }
         IOUtil.close(importer);
     }
 

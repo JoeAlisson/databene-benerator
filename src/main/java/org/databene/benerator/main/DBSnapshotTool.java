@@ -153,6 +153,9 @@ public class DBSnapshotTool {
 
             // export data
             List<TypeDescriptor> descriptors = Arrays.asList(db.getTypeDescriptors());
+            if(dbSchema != null) {
+                db.execute("alter session set current_schema=" + dbSchema);
+            }
             logger.info("Starting export");
             for (TypeDescriptor descriptor : descriptors) {
                 String note = "Exporting table " + descriptor.getName();

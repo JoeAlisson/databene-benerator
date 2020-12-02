@@ -66,6 +66,7 @@ public class GenerateOrIterateStatement extends AbstractStatement implements Clo
 	public GenerateOrIterateStatement(Generator<Long> countGenerator, Expression<Long> minCount, 
 			Expression<Long> pageSize, Expression<PageListener> pageListenerEx, Expression<Integer> threads, 
 			Expression<ErrorHandler> errorHandler, boolean infoLog, boolean isSubCreator, BeneratorContext context) {
+		super(errorHandler);
 	    this.task = null;
 	    this.countGenerator = countGenerator;
 	    this.minCount = minCount;
